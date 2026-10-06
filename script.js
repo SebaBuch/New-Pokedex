@@ -155,3 +155,9 @@ function showPreviousPokemon() {
     }
     renderDialog();
 }
+
+function lockScroll() {
+    savedScrollPosition = window.scrollY;
+    document.body.style.top = "-" + savedScrollPosition + "px";
+    document.body.classList.add("no-scroll");
+}
