@@ -1,0 +1,408 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: 1rem;
+    font-family: "Rubik", Arial, sans-serif;
+    background-color: #eceae4;
+    color: #2b2b2b;
+}
+
+body.no-scroll {
+    position: fixed;
+    width: 100%;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 16px;
+    background-color: #dc0a2d;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+.search-input {
+    width: 160px;
+    padding: 10px 12px;
+    border: 2px solid #2b2b2b;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.search-button {
+    padding: 10px 16px;
+    border: 2px solid #2b2b2b;
+    border-radius: 8px;
+    background-color: #ffcb05;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.search-button:disabled {
+    background-color: #d9d9d9;
+    color: #7a7a7a;
+    cursor: not-allowed;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+}
+
+.error-message {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: #ffe0e5;
+    color: #8b0a1f;
+    font-weight: 600;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.not-found {
+    padding: 40px 16px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+
+.pokemon-card {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    color: #ffffff;
+    box-shadow: 0 4px 8px #00000033;
+    transition: transform 0.2s;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.card-name {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.pokemon-id {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.card-image {
+    width: 120px;
+    height: 120px;
+}
+
+.type-list {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.type-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    background-color: #ffffff40;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.load-more-button {
+    margin-top: 32px;
+    padding: 12px 28px;
+    border: 2px solid #2b2b2b;
+    border-radius: 24px;
+    background-color: #dc0a2d;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.load-more-button:disabled {
+    background-color: #9a9a9a;
+    cursor: not-allowed;
+}
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    background-color: #2b2b2bcc;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ffffff;
+    border-top-color: #dc0a2d;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.pokemon-dialog {
+    margin: auto;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.pokemon-dialog::backdrop {
+    background-color: #000000a6;
+}
+
+.dialog-wrapper {
+    width: 360px;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dialog-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+.dialog-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ffffff40;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.dialog-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.dialog-image {
+    width: 180px;
+    height: 180px;
+}
+
+.stats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #2b2b2b;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stat-label {
+    width: 40px;
+    font-size: 0.875rem;
+    font-weight: 800;
+}
+
+.stat-value {
+    width: 32px;
+    font-size: 0.875rem;
+}
+
+.stat-bar {
+    flex: 1;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #e3e3e3;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background-color: #30a7d7;
+}
+
+.dialog-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-bottom: 6px;
+}
+
+.nav-button {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #2b2b2b;
+    border-radius: 50%;
+    background-color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.nav-button:hover {
+    background-color: #ffcb05;
+}
+
+.bg-normal {
+    background-color: #a8a77a;
+}
+
+.bg-fire {
+    background-color: #ee8130;
+}
+
+.bg-water {
+    background-color: #6390f0;
+}
+
+.bg-grass {
+    background-color: #5fa83a;
+}
+
+.bg-electric {
+    background-color: #e0b400;
+}
+
+.bg-ice {
+    background-color: #6cc4c0;
+}
+
+.bg-fighting {
+    background-color: #c22e28;
+}
+
+.bg-poison {
+    background-color: #a33ea1;
+}
+
+.bg-ground {
+    background-color: #c9a24a;
+}
+
+.bg-flying {
+    background-color: #8f78e0;
+}
+
+.bg-psychic {
+    background-color: #f95587;
+}
+
+.bg-bug {
+    background-color: #92a318;
+}
+
+.bg-rock {
+    background-color: #b6a136;
+}
+
+.bg-ghost {
+    background-color: #735797;
+}
+
+.bg-dragon {
+    background-color: #6f35fc;
+}
+
+.bg-dark {
+    background-color: #705746;
+}
+
+.bg-steel {
+    background-color: #8e8ea8;
+}
+
+.bg-fairy {
+    background-color: #d685ad;
+}
+
+@media (max-height: 700px) {
+    .dialog-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+.d-none {
+    display: none;
+}
