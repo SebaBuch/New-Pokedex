@@ -26,13 +26,18 @@ button {
 }
 
 .header {
+    padding: 20px 16px;
+    background-color: #dc0a2d;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    padding: 20px 16px;
-    background-color: #dc0a2d;
 }
 
 .logo {
@@ -87,6 +92,8 @@ button {
 }
 
 .card-container {
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -394,6 +401,24 @@ button {
 
 .bg-fairy {
     background-color: #d685ad;
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .pokemon-card {
+        width: 100%;
+    }
 }
 
 @media (max-height: 700px) {

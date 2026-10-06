@@ -12,12 +12,14 @@
 
 <body onload="init()">
     <header class="header">
-        <h1 class="logo">Pokédex</h1>
-        <div class="search-bar">
-            <input data-id="search-input" id="searchInput" class="search-input" type="text" placeholder="Search Pokémon"
-                oninput="checkSearchInput()" onkeydown="handleSearchKey(event)">
-            <button data-id="search-button" id="searchButton" class="search-button" onclick="searchPokemon()"
-                disabled>Search</button>
+        <div class="header-inner">
+            <h1 class="logo">Pokédex</h1>
+            <div class="search-bar">
+                <input data-id="search-input" id="searchInput" class="search-input" type="text"
+                    placeholder="Search Pokémon" oninput="checkSearchInput()" onkeydown="handleSearchKey(event)">
+                <button data-id="search-button" id="searchButton" class="search-button" onclick="searchPokemon()"
+                    disabled>Search</button>
+            </div>
         </div>
     </header>
 
