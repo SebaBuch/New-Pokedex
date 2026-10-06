@@ -161,3 +161,9 @@ function lockScroll() {
     document.body.style.top = "-" + savedScrollPosition + "px";
     document.body.classList.add("no-scroll");
 }
+
+function unlockScroll() {
+    document.body.classList.remove("no-scroll");
+    document.body.style.top = "";
+    window.scrollTo(0, savedScrollPosition);
+}
