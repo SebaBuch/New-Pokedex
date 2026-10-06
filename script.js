@@ -74,13 +74,14 @@ function showAllPokemon() {
 
 function renderPokemonCards() {
     const cardContainer = document.getElementById("cardContainer");
-    cardContainer.innerHTML = "";
     if (displayedPokemon.length === 0) {
         cardContainer.innerHTML = getNotFoundTemplate();
     } else {
+        let cardsHtml = "";
         for (let index = 0; index < displayedPokemon.length; index++) {
-            cardContainer.innerHTML += getPokemonCardTemplate(displayedPokemon[index], index);
+            cardsHtml += getPokemonCardTemplate(displayedPokemon[index], index);
         }
+        cardContainer.innerHTML = cardsHtml;
     }
 }
 
