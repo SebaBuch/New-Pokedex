@@ -79,10 +79,19 @@ function renderPokemonCards() {
     } else {
         let cardsHtml = "";
         for (let index = 0; index < displayedPokemon.length; index++) {
-            cardsHtml += getPokemonCardTemplate(displayedPokemon[index], index);
+            const pokemon = displayedPokemon[index];
+            cardsHtml += getPokemonCardTemplate(pokemon, index, getTypesHtml(pokemon.types));
         }
         cardContainer.innerHTML = cardsHtml;
     }
+}
+
+function getTypesHtml(types) {
+    let typesHtml = "";
+    for (let index = 0; index < types.length; index++) {
+        typesHtml += getTypeBadgeTemplate(types[index].type.name);
+    }
+    return typesHtml;
 }
 
 function getSearchValue() {
@@ -128,7 +137,8 @@ function openDialog(index) {
 
 function renderDialog() {
     const pokemon = displayedPokemon[currentDialogIndex];
-    document.getElementById("pokemonDialog").innerHTML = getDialogTemplate(pokemon);
+    const typesHtml = getTypesHtml(pokemon.types);
+    document.getElementById("pokemonDialog").innerHTML = getDialogTemplate(pokemon, typesHtml);
 }
 
 function closeDialog() {

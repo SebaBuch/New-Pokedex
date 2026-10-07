@@ -1,4 +1,4 @@
-function getPokemonCardTemplate(pokemon, index) {
+function getPokemonCardTemplate(pokemon, index, typesHtml) {
     return `
         <button data-id="card" class="pokemon-card bg-${pokemon.types[0].type.name}" onclick="openDialog(${index})">
             <span class="card-header">
@@ -7,23 +7,19 @@ function getPokemonCardTemplate(pokemon, index) {
             </span>
             <img data-id="card-image" class="card-image" src="${pokemon.sprites.other["official-artwork"].front_default}"
                 alt="${pokemon.name}" loading="lazy">
-            <span class="type-list">${getTypesTemplate(pokemon.types)}</span>
+            <span class="type-list">${typesHtml}</span>
         </button>`;
 }
 
-function getTypesTemplate(types) {
-    let typesHtml = "";
-    for (let index = 0; index < types.length; index++) {
-        typesHtml += `<span class="type-badge">${types[index].type.name}</span>`;
-    }
-    return typesHtml;
+function getTypeBadgeTemplate(typeName) {
+    return `<span class="type-badge">${typeName}</span>`;
 }
 
 function getNotFoundTemplate() {
     return `<p data-id="not-found" class="not-found">No match found.</p>`;
 }
 
-function getDialogTemplate(pokemon) {
+function getDialogTemplate(pokemon, typesHtml) {
     return `
         <div data-id="overlay-pokemon-name" class="dialog-wrapper">
             <div class="dialog-card bg-${pokemon.types[0].type.name}">
@@ -32,7 +28,7 @@ function getDialogTemplate(pokemon) {
                     <button data-id="close-dialog-button" class="close-button" onclick="closeDialog()">X</button>
                 </div>
                 <h2 class="dialog-name">${pokemon.name.toUpperCase()}</h2>
-                <div class="type-list">${getTypesTemplate(pokemon.types)}</div>
+                <div class="type-list">${typesHtml}</div>
                 <img data-id="dialog-image" class="dialog-image"
                     src="${pokemon.sprites.other["official-artwork"].front_default}" alt="${pokemon.name}">
                 <div class="stats">
